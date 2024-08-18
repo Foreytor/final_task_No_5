@@ -17,13 +17,26 @@ out_name="report.txt"
 # Очишаем файл
 > $out_name
 
+# Шапка файла
+echo Отчет о логе web-сервера >> $out_name
+echo ======================== >> $out_name
+
+# Добавление отступа в файл
+echo >> $out_name
+
 # Подсчет общего количетсво запросов на основе строк
 echo Общее количество запросов:     $(cat $file_name | wc -l) >> $out_name
+
+# Добавление отступа в файл
+echo >> $out_name
 
 # Получение уникальных IP-адресов из файла access.log с использованием awk
 unique_ips=$(awk '{print $1}' access.log | sort | uniq | wc -l)
 
 echo Количество уникальных IP-адресов     $unique_ips >> $out_name
+
+# Добавление отступа в файл
+echo >> $out_name
 
 echo Количество запросов по методам: >> $out_name
 
@@ -39,6 +52,8 @@ awk '{
         } 
     }' access.log >> $out_name
 
+# Добавление отступа в файл
+echo >> $out_name
 
 # Находим самый популярный URL с использованием awk
 popular_url=$(awk '{urls[$7]++;} END {
