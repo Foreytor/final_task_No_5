@@ -1,1 +1,5 @@
-# final_task_No_5
+# Тестовое задание
+
+Запуск:
+```bash
+./analyze_logs.sh
