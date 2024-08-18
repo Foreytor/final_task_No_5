@@ -29,15 +29,15 @@ echo Количество запросов по методам: >> $out_name
 
 # Подсчет запросов по методам с использованием awk
 awk '{ 
-  # Извлекаем метод, удаляя начальную и конечную кавычки
-  method = substr($6, 2, length($6) - 1) 
-  count[method]++ 
-} 
-END { 
-  for (method in count) { 
-    print "   " count[method], method
-  } 
-}' access.log >> $out_name
+            # Извлекаем метод, удаляя начальную и конечную кавычки
+            method = substr($6, 2, length($6) - 1) 
+            count[method]++ 
+            } 
+        END { 
+        for (method in count) { 
+            print "   " count[method], method
+        } 
+    }' access.log >> $out_name
 
 
 # Находим самый популярный URL с использованием awk
